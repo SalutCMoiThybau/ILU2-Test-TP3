@@ -8,14 +8,23 @@ class WelcomeTest {
 
 	// test de la classe
 	@Test
-	void testWelcomeClass() {
+	void testWelcome() {
 		assertNotNull(new Welcome());
 	}
 	
 	// test de ITER_1
 	@Test
-	void testWelcome() {
+	void testIter1() {
 		assertEquals(Welcome.welcome("bob"), "Hello, Bob");
 	}
+	
+	// tests de ITER_2
+	@Test
+    public void testIter2() {
+		String helloMF = "Hello, my friend";
+        assertEquals(helloMF, Welcome.welcome(""));
+        assertEquals(helloMF, Welcome.welcome(" "));
+        assertEquals(helloMF, Welcome.welcome(null));
+    }
 
 }
