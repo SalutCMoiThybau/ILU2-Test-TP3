@@ -70,5 +70,4 @@ public class Welcome {
 	private static String formatName(String name) {
         return name.trim().toUpperCase().charAt(0) + name.trim().substring(1);
     }
-
 }
