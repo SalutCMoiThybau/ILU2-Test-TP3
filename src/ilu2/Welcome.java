@@ -28,30 +28,37 @@ public class Welcome {
 	    
 	    StringBuilder chaine = new StringBuilder();
 	    
-	    // ITER_6 en partie
+	    // ITER_6, ITER_7 en partie
 	    // ITER_1, ITER_4, ITER_5
 	    if (!minusculeNames.isEmpty()) {
 	        chaine.append("Hello, ");
-	        for (int i = 0; i < minusculeNames.size() - 1; i++) {
-	            chaine.append(formatName(minusculeNames.get(i))).append(", ");
+//	        if (minusculeNames.size() == 2) {
+//	        	chaine.append(formatName(minusculeNames.get(0)) + " and ");
+	        if (minusculeNames.size() > 1) {
+	            for (int i = 0; i < minusculeNames.size() - 2; i++) {
+	            	chaine.append(formatName(minusculeNames.get(i)));
+	            	chaine.append(", ");
+	            }
+	            chaine.append(formatName(minusculeNames.get(minusculeNames.size() - 2)) + " and ");
 	        }
 	        chaine.append(formatName(minusculeNames.get(minusculeNames.size() - 1)));
-	        if (!capitaleNames.isEmpty()) {
-	            chaine.append(".");
-	        }
 	    }
 	    
-	    // ITER_6 en partie
+	    // ITER_6, ITER_7 en partie
 	    // ITER_3
 	    if (!capitaleNames.isEmpty()) {
 	        if (chaine.length() > 0) {
-	            chaine.append(" AND ");
+	            chaine.append(". AND ");
 	        }
 	        chaine.append("HELLO, ");
-	        for (int i = 0; i < capitaleNames.size() - 1; i++) {
-	            chaine.append(capitaleNames.get(i).toUpperCase()).append(", ");
+	        if (capitaleNames.size() > 1) {
+		        for (int i = 0; i < capitaleNames.size() - 2; i++) {
+		        	chaine.append(formatName(capitaleNames.get(i)));
+		            chaine.append(", ");
+		        }
+		        chaine.append(formatName(capitaleNames.get(capitaleNames.size() - 2)) + " AND ");
 	        }
-	        chaine.append(capitaleNames.get(capitaleNames.size() - 1).toUpperCase()).append(" !");
+	        chaine.append(capitaleNames.get(capitaleNames.size() - 1)).append(" !");
 	    }
 
 	    return chaine.toString();

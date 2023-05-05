@@ -33,26 +33,35 @@ class WelcomeTest {
         assertEquals(Welcome.welcome("JERRY"), "HELLO, JERRY !");
     }
 	
-	// tests de ITER_4
+	// tests de ITER_4, ITER_7
 	@Test
     void testIter4() {
-		String helloTwo = "Hello, Bob, Alice";
+		String helloTwo = "Hello, Bob and Alice";
         assertEquals(Welcome.welcome("bob,alice"), helloTwo);
         assertEquals(Welcome.welcome("bob, alice"), helloTwo);
         assertEquals(Welcome.welcome("  bob  ,   alice  "), helloTwo);
     }
 	
-	// test de ITER_5
+	// test de ITER_5, ITER_7
 	@Test
 	void testIter5() {
-	    assertEquals(Welcome.welcome("Amy, bob,jerry"), "Hello, Amy, Bob, Jerry");
+	    assertEquals(Welcome.welcome("Amy, bob,jerry"), "Hello, Amy, Bob and Jerry");
 	}
 	
-	// tests de ITER_6
+	// tests de ITER_6, ITER_7
 	@Test
 	void testIter6() {
-		assertEquals(Welcome.welcome("Amy, BOB, Jerry"), "Hello, Amy, Jerry. AND HELLO, BOB !");
-		assertEquals(Welcome.welcome("AMY, BOB, JERRY"), "HELLO, AMY, BOB, JERRY !");
+		assertEquals(Welcome.welcome("Amy, BOB, Jerry"), "Hello, Amy and Jerry. AND HELLO, BOB !");
+		assertEquals(Welcome.welcome("AMY, BOB, JERRY"), "HELLO, AMY, BOB AND JERRY !");
+	}
+	
+	// tests de ITER_7
+	@Test
+	void testIter7() {
+		assertEquals(Welcome.welcome("Bob, Amy, Jerry"), "Hello, Bob, Amy and Jerry");
+		assertEquals(Welcome.welcome("BOB, Amy,"), "Hello, Amy. AND HELLO, BOB !");
+		assertEquals(Welcome.welcome("BOB, Amy, Jerry"), "Hello, Amy and Jerry. AND HELLO, BOB !");
+		assertEquals(Welcome.welcome("Bob, AMY, Jerry, JACK"), "Hello, Bob and Jerry. AND HELLO, AMY AND JACK !");
 	}
 
 }
