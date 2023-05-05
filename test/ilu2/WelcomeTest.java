@@ -32,5 +32,14 @@ class WelcomeTest {
     void testWelcomeUppercase() {
         assertEquals(Welcome.welcome("JERRY"), "HELLO, JERRY !");
     }
+	
+	// tests de ITER_4
+	@Test
+    public void testTwoNames() {
+		String helloTwo = "Hello, Bob, Alice";
+        assertEquals(Welcome.welcome("bob,alice"), helloTwo);
+        assertEquals(Welcome.welcome("bob, alice"), helloTwo);
+        assertEquals(Welcome.welcome("  bob  ,   alice  "), helloTwo);
+    }
 
 }
