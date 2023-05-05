@@ -20,7 +20,7 @@ class WelcomeTest {
 	
 	// tests de ITER_2
 	@Test
-    public void testIter2() {
+    void testIter2() {
 		String helloMF = "Hello, my friend";
         assertEquals(Welcome.welcome(""), helloMF);
         assertEquals(Welcome.welcome(" "), helloMF);
@@ -29,17 +29,23 @@ class WelcomeTest {
 	
 	// test de ITER_3
 	@Test
-    void testWelcomeUppercase() {
+    void testIter3() {
         assertEquals(Welcome.welcome("JERRY"), "HELLO, JERRY !");
     }
 	
 	// tests de ITER_4
 	@Test
-    public void testTwoNames() {
+    void testIter4() {
 		String helloTwo = "Hello, Bob, Alice";
         assertEquals(Welcome.welcome("bob,alice"), helloTwo);
         assertEquals(Welcome.welcome("bob, alice"), helloTwo);
         assertEquals(Welcome.welcome("  bob  ,   alice  "), helloTwo);
     }
+	
+	// test de ITER_5
+	@Test
+	void testIter5() {
+	    assertEquals(Welcome.welcome("Amy, bob,jerry"), "Hello, Amy, Bob, Jerry");
+	}
 
 }
