@@ -22,9 +22,15 @@ class WelcomeTest {
 	@Test
     public void testIter2() {
 		String helloMF = "Hello, my friend";
-        assertEquals(helloMF, Welcome.welcome(""));
-        assertEquals(helloMF, Welcome.welcome(" "));
-        assertEquals(helloMF, Welcome.welcome(null));
+        assertEquals(Welcome.welcome(""), helloMF);
+        assertEquals(Welcome.welcome(" "), helloMF);
+        assertEquals(Welcome.welcome(null), helloMF);
+    }
+	
+	// test de ITER_3
+	@Test
+    void testWelcomeUppercase() {
+        assertEquals(Welcome.welcome("JERRY"), "HELLO, JERRY !");
     }
 
 }
