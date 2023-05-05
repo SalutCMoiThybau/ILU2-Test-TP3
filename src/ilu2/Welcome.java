@@ -1,5 +1,8 @@
 package ilu2;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Welcome {
 	
 	public static String welcome(String input) {
@@ -9,30 +12,49 @@ public class Welcome {
             return "Hello, my friend";
         }
 		
-		String[] inputs = input.split(",");
-		
-		// ITER_1, ITER_3, ITER_4, ITER_5
-        if (inputs.length == 1) {
-        	
-        	// ITER_3
-    		if (input.equals(input.toUpperCase())) {
-                return "HELLO, " + input.toUpperCase() + " !";
-            }
-    		
-    		// ITER_1
-            return "Hello, " + formatName(input);
-        } else {
-        	
-			// ITER_4, ITER_5
-			StringBuilder chaine = new StringBuilder("Hello,");
-			for (String name : inputs) {
-			    chaine.append(" ").append(formatName(name.trim()));
-			    if (!name.equals(inputs[inputs.length - 1])) {
-			        chaine.append(",");
-			    }
-			}
-            return chaine.toString();
-        }
+		String[] names = input.split(",");
+	    List<String> capitaleNames = new ArrayList<>();
+	    List<String> minusculeNames = new ArrayList<>();
+	    for (String name : names) {
+//	        if (name.trim().equals("")) {
+//	            return "Il n'y a pas que des noms !";
+//	        }
+	        if (name.toUpperCase().equals(name)) {
+	        	capitaleNames.add(name.trim());
+	        } else {
+	        	minusculeNames.add(name.trim());
+	        }
+	    }
+	    
+	    StringBuilder chaine = new StringBuilder();
+	    
+	    // ITER_6 en partie
+	    // ITER_1, ITER_4, ITER_5
+	    if (!minusculeNames.isEmpty()) {
+	        chaine.append("Hello, ");
+	        for (int i = 0; i < minusculeNames.size() - 1; i++) {
+	            chaine.append(formatName(minusculeNames.get(i))).append(", ");
+	        }
+	        chaine.append(formatName(minusculeNames.get(minusculeNames.size() - 1)));
+	        if (!capitaleNames.isEmpty()) {
+	            chaine.append(".");
+	        }
+	    }
+	    
+	    // ITER_6 en partie
+	    // ITER_3
+	    if (!capitaleNames.isEmpty()) {
+	        if (chaine.length() > 0) {
+	            chaine.append(" AND ");
+	        }
+	        chaine.append("HELLO, ");
+	        for (int i = 0; i < capitaleNames.size() - 1; i++) {
+	            chaine.append(capitaleNames.get(i).toUpperCase()).append(", ");
+	        }
+	        chaine.append(capitaleNames.get(capitaleNames.size() - 1).toUpperCase()).append(" !");
+	    }
+
+	    return chaine.toString();
 		
 	}
 	
