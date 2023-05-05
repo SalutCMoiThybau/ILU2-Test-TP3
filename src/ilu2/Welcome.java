@@ -20,8 +20,10 @@ public class Welcome {
 //	            return "Il n'y a pas que des noms !";
 //	        }
 	        if (name.toUpperCase().equals(name)) {
+	        	// ITER_8
 	        	capitaleNames.add(name.trim());
 	        } else {
+	        	// ITER_8
 	        	minusculeNames.add(name.trim());
 	        }
 	    }
